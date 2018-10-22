@@ -101,12 +101,14 @@ public class GitSimulator {
 												temp2.arquivos.get(y).add();
 												temp2.stg_arquivos.add(temp2.arquivos.get(y));
 												temp2.unstg_arquivos.remove(temp2.arquivos.get(y));
+												break;
 											}
-											else
+											else if(temp2.arquivos.get(y).editado == true)
 												temp2.arquivos.get(y).editado = false;
 												temp2.arquivos.get(y).add();
 												temp2.stg_arquivos.add(temp2.arquivos.get(y));
 												temp2.unstg_arquivos.remove(temp2.arquivos.get(y));
+												break;
 											
 										}
 										else if(nomeArq2.equals("all") & temp2.arquivos.get(y).status.equals("untracked")) {
@@ -140,11 +142,9 @@ public class GitSimulator {
 								case 6:
 									String message = JOptionPane.showInputDialog("Digite a mensagem do seu commit: ");
 									Repositorio temp5 = control.repositorios.get(i);
-									for(int z = 0; z < temp5.stg_arquivos.size();z++) {
-										temp5.stg_arquivos.removeAll(temp5.stg_arquivos);
-										control.commits.add(new Commit(message));
-									}	
-									option2 = Integer.parseInt(JOptionPane.showInputDialog(control.menu2()));
+									temp5.commits.add(new Commit(message));
+									temp5.stg_arquivos.removeAll(temp5.stg_arquivos);
+								
 									break;
 									
 								case 7:
@@ -160,13 +160,13 @@ public class GitSimulator {
 									break;
 									
 								case 8:
-									
-									
+									control.repositorios.get(i).log();
+									option2 = Integer.parseInt(JOptionPane.showInputDialog(control.menu2()));
 									break;
+									
 								}		
 							}
 						}
-					
 							
 					}
 					if(!control.repositorios.contains(nomeRepo2))

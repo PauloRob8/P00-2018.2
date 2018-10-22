@@ -1,16 +1,22 @@
 package modelo;
 import java.util.ArrayList;
 
+
 public class Repositorio {
 	
 	public ArrayList<Arquivo> arquivos = new ArrayList();
 	public ArrayList<Arquivo> stg_arquivos = new ArrayList();
 	public ArrayList<Arquivo> unstg_arquivos = new ArrayList();
+	public ArrayList<Commit> commits = new ArrayList();
 	
 	public String nome;
 
 	public Repositorio(String n){
 		this.nome = n;
+		
+	}
+	
+	public void log() {
 		
 	}
 	

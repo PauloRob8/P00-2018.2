@@ -1,10 +1,9 @@
-package Negocios;
-
-import modelo.*;
+package modelo;
 
 public class Commit {
 	
 	public String message;
+	public int qtdArtigo;
 	
 	
 	public Commit(String m) {
@@ -15,6 +14,5 @@ public class Commit {
 		a.status = "commited";
 
 	}
-
 	
 }

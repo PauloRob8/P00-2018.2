@@ -7,8 +7,6 @@ public class ControleRepositorio {
 	
 	public Repositorio repos;
 	public ArrayList<Repositorio> repositorios = new ArrayList();
-	public ArrayList<Commit> commits = new ArrayList();
-	
 	
 	
 	public Repositorio getRepositorio(String nome) {
@@ -28,10 +26,6 @@ public class ControleRepositorio {
 				+ "8-> Log\n9-> Remote Add\n10->Push\n11-> Pull\n12-> Remote remove\n0-> Sair ";
 	}
 	
-	public void addCommit(Commit c) {
-		this.commits.add(c);
-		
-	}
 	
 	public void listarRepo(ControleRepositorio control) {
 		for(int i =0;i < control.repositorios.size();i++)
@@ -68,10 +62,4 @@ public class ControleRepositorio {
 			
 	}
 	
-	public void log() {
-		for(int i = this.commits.size(); i == 0; i--) {
-			System.out.println(this.commits.get(i).message);
-		}
-			
-	}
 }
