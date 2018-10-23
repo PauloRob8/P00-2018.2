@@ -1,13 +1,16 @@
 package Negocios;
 
 import modelo.*;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class ControleRepositorio {
 	
 	public Repositorio repos;
 	public ArrayList<Repositorio> repositorios = new ArrayList();
-	
+	public ArrayList<String> gravador = new ArrayList();
 	
 	public Repositorio getRepositorio(String nome) {
 		for(int i = 0; i < repositorios.size();i++)
@@ -17,13 +20,19 @@ public class ControleRepositorio {
 			return null;
 	}
 	
+	public String getDateTime() { 
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss"); 
+		Date date = new Date(); 
+		return dateFormat.format(date); 
+	}
+	
 	public String menu1() {
 		return "-- Git Simulator -- \n1-> Criar Repositório\n2-> Acessar Repositório\n3-> Listar Repositorios \n0-> Sair"; 
 	}
 	
 	public String menu2() {
 		return "1-> Adicionar Arquivo\n2-> Listar Arquivos\n3-> Editar ou Remover\n4-> Git add\n5-> Reset\n6-> Commit\n7-> Status\n"
-				+ "8-> Log\n9-> Remote Add\n10->Push\n11-> Pull\n12-> Remote remove\n0-> Sair ";
+				+ "8-> Log\n0-> Sair ";
 	}
 	
 	
@@ -61,5 +70,26 @@ public class ControleRepositorio {
 		}
 			
 	}
+	
+	public void mudanças(Arquivo a) {
+		for(int i = 0; i < a.mudanças.size(); i++) {
+			System.out.println("Alterações realizadas no arquivos ->" + "Versão " + i + a.mudanças.get(i));
+		}
+	}
+	
+	public void listarArquivosCommited(Repositorio repo) {
+		for(int i = 0;i < repo.arquivos.size();i ++) {
+			this.mudanças(repo.arquivos.get(i));
+			
+		}
+}
+	public String log(Repositorio repo) {
+		String s = "";
+		for(int i = 0; i < repo.commits.size();i++) {
+			s = "Commit: " + repo.commits.get(i).hashCode() + "\nData: "+ repo.commits.get(i).data + "\n" + repo.commits.get(i).message + 
+					"\nQuantidade de arquivos: " + repo.commits.get(i).qtdArquivos;
+	}
+		return s;	
+}
 	
 }

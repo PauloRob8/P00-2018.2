@@ -16,9 +16,6 @@ public class Repositorio {
 		
 	}
 	
-	public void log() {
-		
-	}
 	
 	public String addArquivo(Arquivo a) {
 		arquivos.add(a);
