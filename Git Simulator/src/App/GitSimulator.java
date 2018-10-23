@@ -19,14 +19,13 @@ public class GitSimulator {
 		Repositorio repo2 = new Repositorio("Repo2");
 		Arquivo file1 = new Arquivo("File1",".txt");
 		Arquivo file2 = new Arquivo("File2",".txt");
-		Arquivo file3 = new Arquivo("File3",".png");
 		
 		repo1.addArquivo(file2);
 		repo1.addArquivo(file1);
 		
 		ControleRepositorio control = new ControleRepositorio();
 		
-		FileWriter commitsTxt = new FileWriter("C:\\Git Simulator Commits.txt");
+		FileWriter commitsTxt = new FileWriter("Git Simulator Commits.txt");
 		PrintWriter gravarArq = new PrintWriter(commitsTxt);
 		
 		control.repositorios.add(repo1);
@@ -121,14 +120,13 @@ public class GitSimulator {
 											if(temp2.arquivos.get(y).editado == false & !temp2.stg_arquivos.contains(temp2.arquivos.get(y))) {
 												temp2.arquivos.get(y).add();
 												temp2.stg_arquivos.add(temp2.arquivos.get(y));
-												temp2.unstg_arquivos.remove(temp2.arquivos.get(y));
+												
 												break;
 											}
 											else if(temp2.arquivos.get(y).editado == true & temp2.arquivos.get(y).status.equals("untracked")) {
 												temp2.arquivos.get(y).editado = false;
 												temp2.arquivos.get(y).add();
 												temp2.stg_arquivos.add(temp2.arquivos.get(y));
-												temp2.unstg_arquivos.remove(temp2.arquivos.get(y));
 												break;
 											}
 												
@@ -143,7 +141,7 @@ public class GitSimulator {
 											temp2.arquivos.get(y).editado = false;
 											temp2.arquivos.get(y).add();
 											temp2.stg_arquivos.add(temp2.arquivos.get(y));
-											temp2.unstg_arquivos.remove(temp2.arquivos.get(y));
+											
 										}
 					
 										
@@ -161,13 +159,13 @@ public class GitSimulator {
 										if(temp3.arquivos.get(y).nome.equals(nomeArq3)) {
 											temp3.arquivos.get(y).reset();
 											temp3.stg_arquivos.remove(temp3.arquivos.get(y));
-											temp3.unstg_arquivos.add(temp3.arquivos.get(y));
+											
 											
 										}
 										else if(nomeArq3.equals("all") & temp3.arquivos.get(y).status.equals("Stage Zone") ) {
 											temp3.arquivos.get(y).reset();
 											temp3.stg_arquivos.remove(temp3.arquivos.get(y));
-											temp3.unstg_arquivos.add(temp3.arquivos.get(y));
+											
 										}
 									option2 = Integer.parseInt(JOptionPane.showInputDialog(control.menu2()));
 									}catch(java.lang.NullPointerException e) {
@@ -208,9 +206,8 @@ public class GitSimulator {
 									break;
 									
 								case 8:
-									control.listarArquivosCommited(control.repositorios.get(i));
 									System.out.println(control.log(control.repositorios.get(i)));
-									gravarArq.print(control.log(control.repositorios.get(i)));;
+									gravarArq.write("Commits do Repositorio : " + control.repositorios.get(i).nome +"\n" +control.log(control.repositorios.get(i))+ "\n");;
 									option2 = Integer.parseInt(JOptionPane.showInputDialog(control.menu2()));
 									break;
 									
@@ -224,6 +221,7 @@ public class GitSimulator {
 					option1 = Integer.parseInt(JOptionPane.showInputDialog(control.menu1()));
 		}
 	}	
+		JOptionPane.showMessageDialog(null, "Os commits serão salvos no arquivo Git Simulator Commits.txt,na pasta deste sistema");
 		gravarArq.close();
 	}
 }

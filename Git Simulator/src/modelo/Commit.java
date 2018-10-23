@@ -17,10 +17,5 @@ public class Commit {
 		this.commited = lista;
 	}
 	
-	public void commitar(Arquivo a) {
-		a.status = "commited";
-
-	}
-	
 	
 }

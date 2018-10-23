@@ -6,7 +6,6 @@ public class Repositorio {
 	
 	public ArrayList<Arquivo> arquivos = new ArrayList();
 	public ArrayList<Arquivo> stg_arquivos = new ArrayList();
-	public ArrayList<Arquivo> unstg_arquivos = new ArrayList();
 	public ArrayList<Commit> commits = new ArrayList();
 	
 	public String nome;
@@ -55,23 +54,5 @@ public class Repositorio {
 		
 	}
 	
-	public String unstg_addArquivo(Arquivo a) {
-		unstg_arquivos.add(a);
-		return "Arquivo adicionado com sucesso!";
-	}
-	
-	public String unstg_removerArquivo(Arquivo a) {
-		for(int i = 0; i < unstg_arquivos.size(); i++) {
-			if(unstg_arquivos.contains(a)) {
-				unstg_arquivos.remove(a);
-				return "Arquivo removido com sucesso";
-			}
-			else if(!unstg_arquivos.contains(a))
-				return "Arquivo não encontrado";
-			
-		}
-		return "Operação finalizada";
-		
-	}
 
 }
