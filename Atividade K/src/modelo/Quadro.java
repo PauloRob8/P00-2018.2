@@ -33,19 +33,11 @@ public class Quadro {
 	}
 	
 	public void alterarPrivacidade() {
-		if(this.privado == true)
-			this.privado = false;
-		
-		else if(this.privado == false)
-			this.privado = true;
+		this.privado = !this.privado;
 	}
 	
 	public void alterarFavorito() {
-		if(this.favorito == true)
-			this.favorito = false;
-		
-		else if(this.favorito == false)
-			this.favorito = true;
+		this.favorito = !this.favorito;
 	}
 	
 

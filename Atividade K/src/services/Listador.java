@@ -17,8 +17,8 @@ public class Listador {
 	}
 	
 	public String menu2(String nomeQ) {
-		return "Você Está no quadro " + nomeQ + "n\n1-> Adicionar Lista\n2-> Listar listas\n3->Adicionar Cartão há uma lista\n5->Acessar Cartão \n4-> Arquivar/Restaurar Lista"
-				+ "\n5-> Arquivar todos os cartões desta Lista\n->6 Alterar Privacidae\n7-> Favoritar/Desfavoritar\n8-> Remover Lista\n0-> Sair";
+		return "Você Está no quadro " + nomeQ + "n\n1-> Adicionar Lista\n2-> Listar listas\n3->Adicionar Cartão há uma lista\n4->Acessar Cartão \n5-> Arquivar/Restaurar Lista"
+				+ "\n6-> Arquivar todos os cartões desta Lista\n7-> Alterar Privacidae\n8-> Favoritar/Desfavoritar\n9-> Mover Lista\n10-> Remover Lista\n0-> Sair";
 	}
 	
 	public String menu3(String card,String lista) {
@@ -49,8 +49,9 @@ public class Listador {
 		String lists = "";
 		if(!this.listador.quadros.isEmpty()){
 			for(int i = 0; i < this.listador.acessaQuadro(nomeDoQuadro).listas.size();i++){
-				lists = lists + "Lista-> " + this.listador.acessaQuadro(nomeDoQuadro).listas.get(i).nome + " Possui" + 
-				this.listador.acessaQuadro(nomeDoQuadro).listas.get(i).cartoes.size() + " Cartões" + "\n";
+				if(this.listador.acessaQuadro(nomeDoQuadro).listas.get(i).arquivado == false)
+					lists = lists + "Lista-> " + this.listador.acessaQuadro(nomeDoQuadro).listas.get(i).nome + " Possui" + 
+					this.listador.acessaQuadro(nomeDoQuadro).listas.get(i).cartoes.size() + " Cartões" + "\n";
 			}
 		}
 		else{
@@ -66,9 +67,10 @@ public class Listador {
 		String cards = "";
 		if(!this.listador.acessaLista(nomeDaLista,nomeQ).cartoes.isEmpty()){
 			for(int i = 0; i < this.listador.acessaLista(nomeDaLista,nomeQ).cartoes.size();i++){
-				cards = cards + "Cartão-> " + this.listador.acessaLista(nomeDaLista,nomeQ).cartoes.get(i).nome + " " + " possui" + 
-				this.listador.acessaLista(nomeDaLista,nomeQ).cartoes.get(i).etiquetas.size() + " Etiquetas e possui" + 
-				this.listador.acessaLista(nomeDaLista,nomeQ).cartoes.get(i).comentarios.size() + "comentários \n";
+				if(this.listador.acessaLista(nomeDaLista, nomeQ).cartoes.get(i).arquivado == false)
+					cards = cards + "Cartão-> " + this.listador.acessaLista(nomeDaLista,nomeQ).cartoes.get(i).nome + " " + " possui" + 
+					this.listador.acessaLista(nomeDaLista,nomeQ).cartoes.get(i).etiquetas.size() + " Etiquetas e possui" + 
+					this.listador.acessaLista(nomeDaLista,nomeQ).cartoes.get(i).comentarios.size() + "comentários \n";
 			}
 		}
 		else{

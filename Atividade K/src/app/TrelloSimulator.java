@@ -40,7 +40,7 @@ public class TrelloSimulator {
 							option2 = Integer.parseInt(JOptionPane.showInputDialog(listador.menu2(quadro)));
 							
 						case 2:
-							System.out.println(listador.listarListas(quadro));
+							JOptionPane.showMessageDialog(null,listador.listarListas(quadro));
 							option2 = Integer.parseInt(JOptionPane.showInputDialog(listador.menu2(quadro)));
 							break;
 							
@@ -74,13 +74,21 @@ public class TrelloSimulator {
 											
 										case 2:
 											
+											String descri = JOptionPane.showInputDialog("Digite a descrição do cartão: ");
+											trello.acessarCartao(cartao, listaCard, quadro).addDescricao(descri);
+											option3 = Integer.parseInt(JOptionPane.showInputDialog(listador.menu3(cartao, listaCard)));
 											break;
 											
 											
 										case 3:
+											String coment = JOptionPane.showInputDialog("Adicione um comentário: ");
+											trello.acessarCartao(cartao, listaCard, quadro).addComentario(coment);
+											option3 = Integer.parseInt(JOptionPane.showInputDialog(listador.menu3(cartao, listaCard)));
 											break;
 											
 										case 4:
+											JOptionPane.showMessageDialog(null,listador.registroAtividade(cartao, listaCard, quadro));
+											option3 = Integer.parseInt(JOptionPane.showInputDialog(listador.menu3(cartao, listaCard)));
 											break;
 										
 										}
@@ -91,7 +99,44 @@ public class TrelloSimulator {
 							option2 = Integer.parseInt(JOptionPane.showInputDialog(listador.menu2(quadro)));
 							break;
 							
+						case 5:
+							String arLista = JOptionPane.showInputDialog("Digite a lista a ser arquivada: ");
+							trello.acessaLista(arLista, quadro).arquivarLista();
+							JOptionPane.showMessageDialog(null,"Cartões arquivados!");
+							option2 = Integer.parseInt(JOptionPane.showInputDialog(listador.menu2(quadro)));
+							
+							break;
+							
+						case 6:
+							
+							String arLista1 = JOptionPane.showInputDialog("Digite a lista a ter seus cartões arquivados: ");
+							trello.acessaLista(arLista1, quadro).arquivarTodosCartoes();
+							JOptionPane.showMessageDialog(null,"Cartões arquivados!");
+							option2 = Integer.parseInt(JOptionPane.showInputDialog(listador.menu2(quadro)));
+							
+							break;
+							
+						case 7:
+							trello.acessaQuadro(quadro).alterarPrivacidade();
+							JOptionPane.showMessageDialog(null, "Privacidade alterada");
+							option2 = Integer.parseInt(JOptionPane.showInputDialog(listador.menu2(quadro)));
+							break;
+							
+						
+						case 8:
+							trello.acessaQuadro(quadro).alterarFavorito();
+							JOptionPane.showMessageDialog(null, "Favoritado");
+							option2 = Integer.parseInt(JOptionPane.showInputDialog(listador.menu2(quadro)));
+							break;
+						
+						case 9:
+							
+							
+							
+							break;
+							
 						}
+						
 					}
 					
 					}
@@ -102,8 +147,7 @@ public class TrelloSimulator {
 				break;
 				
 			case 3:
-				
-				System.out.println(listador.listarQuadros());
+				JOptionPane.showMessageDialog(null,listador.listarQuadros());
 				option1 = Integer.parseInt((JOptionPane.showInputDialog(listador.menu1())));
 				
 				break;
