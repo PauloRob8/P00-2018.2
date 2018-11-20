@@ -19,7 +19,7 @@ public class Quadro {
 		this.tema = tema;
 		this.listas.add(0, new Lista("A fazer"));
 		this.listas.add(1, new Lista("Fazendo"));
-		this.listas.add(2, new Lista("Concluï¿½do"));
+		this.listas.add(2, new Lista("Concluído"));
 	}
 	
 	

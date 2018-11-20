@@ -9,6 +9,7 @@ public class Lista {
 	public int posicao;
 	public boolean arquivado;
 	
+	
 	public Lista(String n) {
 		this.nome = n;
 	}
@@ -18,9 +19,10 @@ public class Lista {
 		this.posicao = p;
 	}
 	
+	
 	public void adicionarCartao(String nome) {
 		Cartoes card = new Cartoes(nome,this.nome);
-		card.log.add("O usu√°rio adicionou este cart√£o a lista" + this.nome);
+		card.log.add("O usu·rio adicionou este cart„o a lista" + this.nome);
 		this.cartoes.add(card);
 	}
 	
@@ -35,9 +37,10 @@ public class Lista {
 	public void arquivarTodosCartoes() {
 		for(int i = 0; i < this.cartoes.size(); i++ ){
 			this.cartoes.get(i).arquivado = true;
-			this.cartoes.get(i).log.add("O usu√°rio aquivou este cart√£o");
+			this.cartoes.get(i).log.add("O usu·rio aquivou este cart„o");
 		}
 	}
+	
 	
 
 }

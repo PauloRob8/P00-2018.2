@@ -19,10 +19,19 @@ public class Cartoes {
 		
 	}
 	
-	
 	public void addEtiqueta(String nome,String cor) {
 		this.etiquetas.add(new Etiqueta(nome,cor));
 		
+	}
+	
+	public void arquivarCartao(){
+		this.arquivado = true;
+		this.log.add("O usu·rio arquivou este cart„o");
+	}
+	
+	public void restaurarCartao(){
+		this.arquivado = false;
+		this.log.add("O usu·rio enviou este cart„o ao quadro");
 	}
 	
 	
@@ -33,16 +42,5 @@ public class Cartoes {
 	public void addDescricao(String d) {
 		this.descricao = d;
 	}
-	
-	public void arquivarCartao(){
-		this.arquivado = true;
-		this.log.add("O usu√°rio arquivou este cart√£o");
-	}
-	
-	public void restaurarCartao(){
-		this.arquivado = false;
-		this.log.add("O usu√°rio enviou este cart√£o ao quadro");
-	}
 
 }
-
