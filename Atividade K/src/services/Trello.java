@@ -8,47 +8,55 @@ public class Trello {
 	
 	public Quadro quadro;
 	public Lista lista;
-	public Cartoes cartoes;
+	public Cartao cartoes;
 	public Etiqueta etiquetas;
 	public ArrayList<Quadro> quadros = new ArrayList();
 	
 	
-	//Usando sobrecarga para os diferentes tipos de mover listas e cartões, mover entre posições ou quadros e etc.
-
-	public void moverLista(int posicao,Lista l) {
-		if(this.quadro.listas.get(posicao) == null) {
-			this.quadro.listas.add(posicao, l);
-		}
-		else {
-			Lista temp = this.quadro.listas.get(posicao);
-			this.quadro.listas.add(posicao,l);
-			this.quadro.listas.add(l.posicao, temp);
-		}
-			
-	}
-	
-	public void moverLista(Quadro q,Lista l) {
+	public void moverLista(String q1,String q2,String lista) {
+		this.acessaQuadro(q2).listas.add(this.acessaLista(lista, q1));
+		this.acessaQuadro(q1).listas.remove(this.acessaLista(lista,q1));
+		
 		
 	}
 	
-	public void moverCartao() {
+	public void moverCartao(String lista1,String lista2,String card,String quadro) {
+		this.acessaLista(lista2, quadro).cartoes.add(this.acessarCartao(card, lista1, quadro));
+		this.acessarCartao(card, lista1, quadro).log.add("Usuário moveu este cartão de " + 
+		this.acessaLista(lista1, quadro).nome  + " para " + this.acessaLista(lista2, quadro).nome);
+		this.acessaLista(lista1, quadro).cartoes.remove(this.acessarCartao(card, lista1, quadro));
+		
 		
 	}
 	
-	
-	public void removerLista(Quadro q){
-		for(int i = 0; i < q.listas.size();i++){
-			if(q.listas.get(i).arquivado == true)
-				q.listas.remove(i);
+	public void moverTodosCartoes(String lista1,String lista2,String quadro) {
+		for(int i = 0; i < this.acessaLista(lista1,quadro).cartoes.size();i++) {
+			this.acessaLista(lista2, quadro).cartoes.add(this.acessaLista(lista1,quadro).cartoes.get(i));
+			this.acessaLista(lista1, quadro).cartoes.get(i).log.add("Usuário moveu este cartão de "
+			+this.acessaLista(lista1, quadro).nome + " para " + this.acessaLista(lista2, quadro).nome);
 		}
+		this.acessaLista(lista1, quadro).cartoes.clear();
 		
 	}
 	
-	public void removerCartao(Lista l){
-		for(int i = 0; i < l.cartoes.size();i++){
-			if(l.cartoes.get(i).arquivado == true)
-				l.cartoes.remove(i);
-		}
+	public void copiarLista(String quadro,String lista,String nome) throws CloneNotSupportedException {
+		Lista l = new Lista(nome);
+		l = this.acessaLista(lista, quadro).clone();
+		l.setNome(nome);
+		this.acessaQuadro(quadro).listas.add(l);
+	}
+	
+	
+	public void removerLista(String lista,String quadro){
+		if(this.acessaLista(lista, quadro).arquivado == true)
+			this.acessaQuadro(quadro).listas.remove(this.acessaLista(lista, quadro));
+		
+	}
+	
+	public void removerCartao(String card, String list,String quadro){
+		if(this.acessarCartao(card, list, quadro).arquivado == true)
+			this.acessaLista(list,quadro).cartoes.remove(this.acessarCartao(card, list, quadro));
+		
 	}
 	
 	
@@ -83,7 +91,7 @@ public class Trello {
 		this.acessaLista(nomeLista, nomeQ).adicionarCartao(card);
 	}
 	
-	public Cartoes acessarCartao(String card,String nomeLista,String nomeQ) {
+	public Cartao acessarCartao(String card,String nomeLista,String nomeQ) {
 		for(int i = 0; i < this.acessaLista(nomeLista, nomeQ).cartoes.size();i++)
 			if(this.acessaLista(nomeLista, nomeQ).cartoes.get(i).nome.equals(card))
 				return this.acessaLista(nomeLista, nomeQ).cartoes.get(i);

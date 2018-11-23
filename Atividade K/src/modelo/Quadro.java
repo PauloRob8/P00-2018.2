@@ -4,28 +4,22 @@ import java.util.ArrayList;
 
 public class Quadro {
 	
-	public String membros;
 	public String nome;
-	public boolean privado = true;
+	public boolean privado;
 	public String tema;
 	public ArrayList<Lista> listas = new ArrayList();
-	public boolean favorito = false;
-	public int contLista = 3;
+	public boolean favorito;
 	
 	
 	public Quadro(String nome,boolean pri,String tema) {
 		this.nome = nome;
 		this.privado = pri;
 		this.tema = tema;
-		this.listas.add(0, new Lista("A fazer"));
-		this.listas.add(1, new Lista("Fazendo"));
-		this.listas.add(2, new Lista("Concluído"));
 	}
 	
 	
 	public void adicionarLista(String nome) {
-		listas.add(this.contLista,new Lista(nome,this.contLista));
-		this.contLista++;
+		listas.add(new Lista(nome));
 	}
 	
 	public void alterarTema(String tema) {
@@ -40,5 +34,4 @@ public class Quadro {
 		this.favorito = !this.favorito;
 	}
 	
-
 }

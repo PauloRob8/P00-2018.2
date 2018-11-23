@@ -2,37 +2,40 @@ package modelo;
 
 import java.util.ArrayList;
 
-public class Lista {
+public class Lista implements Cloneable{
 	
 	public String nome;
-	public ArrayList<Cartoes> cartoes = new ArrayList();
-	public int posicao;
+	public ArrayList<Cartao> cartoes = new ArrayList();
 	public boolean arquivado;
+
 	
 	
 	public Lista(String n) {
 		this.nome = n;
 	}
 	
-	public Lista(String n,int p) {
+	public void setNome(String n) {
 		this.nome = n;
-		this.posicao = p;
 	}
 	
+	@Override
+    public Lista clone() throws CloneNotSupportedException {
+        return (Lista) super.clone();
+    }
 	
 	public void adicionarCartao(String nome) {
-		Cartoes card = new Cartoes(nome,this.nome);
+		Cartao card = new Cartao(nome,this.nome);
 		card.log.add("O usuário adicionou este cartão a lista" + this.nome);
 		this.cartoes.add(card);
 	}
 	
+	
+	//Arquiva ou restaura uma lista
 	public void arquivarLista() {
-		this.arquivado = true;
+		this.arquivado = !this.arquivado;
+		
 	}
 	
-	public void restaurarLista() {
-		this.arquivado = false;
-	}
 	
 	public void arquivarTodosCartoes() {
 		for(int i = 0; i < this.cartoes.size(); i++ ){
@@ -40,7 +43,5 @@ public class Lista {
 			this.cartoes.get(i).log.add("O usuário aquivou este cartão");
 		}
 	}
-	
-	
 
 }
