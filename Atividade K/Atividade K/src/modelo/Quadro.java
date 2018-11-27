@@ -4,12 +4,11 @@ import java.util.ArrayList;
 
 public class Quadro {
 	
-	public String membros;
 	public String nome;
-	public boolean privado = true;
+	public boolean privado;
 	public String tema;
 	public ArrayList<Lista> listas = new ArrayList();
-	public boolean favorito = false;
+	public boolean favorito;
 	
 	
 	public Quadro(String nome,boolean pri,String tema) {
