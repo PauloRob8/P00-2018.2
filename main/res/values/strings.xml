@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Atividade L</string>
+    <string name="toast">TOAST</string>
+    <string name="decrementar">decrementar -</string>
+    <string name="incremento">INCREMENTO :</string>
+    <string name="input">_________</string>
+    <string name="incrementar">incrementar +</string>
+    <string name="numero">0</string>
+    <string name="toastMessage">Hellou Atividade L</string>
+</resources>
