@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Atividade M</string>
+    <string name="digite_seu_nome">Digite seu nome:</string>
+    <string name="preencher_dados">Preencher Dados</string>
+    <string name="sedent_rio">Sedentário</string>
+    <string name="informe_seu_estilo_de_vida">Informe seu estilo de vida:</string>
+    <string name="levemente_ativo">Levemente Ativo</string>
+    <string name="moderadamente_ativo">Moderadamente Ativo</string>
+    <string name="muito_ativo">Muito Ativo</string>
+    <string name="digite_seu_peso_kg">Digite seu peso (KG):</string>
+    <string name="digite_sua_altura_metros">Digite sua altura (metros):</string>
+    <string name="confirmar">Confirmar</string>
+</resources>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".InformacoesActivity">
+
+    <TextView
+        android:id="@+id/nome2"
+        android:layout_marginTop="10dp"
+        android:textSize="30sp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/dados"
+        android:text="@string/preencher_dados"
+        android:textColor="#FFFF"
+        android:layout_marginTop="20dp"
+        android:layout_margin="10dp"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="preencherDados"/>
+
+    <TextView
+        android:id="@+id/altura"
+        android:text="Altura: 1.60m"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/peso"
+        android:text="Peso: 3kg"
+        android:textSize="18sp"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tbm"
+        android:text="1293.21kal"
+        android:textStyle="bold"
+        android:textSize="40sp"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:text="@string/informe_seu_estilo_de_vida"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <RadioGroup
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:text="@string/sedent_rio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="setSedentario"/>
+
+        <RadioButton
+            android:text="@string/levemente_ativo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="setLevemente"/>
+
+        <RadioButton
+            android:text="@string/moderadamente_ativo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="setModerado"/>
+
+        <RadioButton
+            android:text="@string/muito_ativo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="setAtivo"/>
+
+    </RadioGroup>
+
+    <Button
+        android:text="Detalhes"
+        android:textColor="#FFF"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="10dp"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
