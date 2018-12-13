@@ -10,4 +10,11 @@
     <string name="digite_seu_peso_kg">Digite seu peso (KG):</string>
     <string name="digite_sua_altura_metros">Digite sua altura (metros):</string>
     <string name="confirmar">Confirmar</string>
+    <string name="detalhes">Detalhes</string>
+    <string name="gasto_energ_tico_total">Gasto Energético Total</string>
+    <string name="carboidratos">Carboidratos:</string>
+    <string name="prote_nas">Proteínas:</string>
+    <string name="gorduras">Gorduras:</string>
+    <string name="gramas">GRAMAS:</string>
+    <string name="kal">KAL:</string>
 </resources>

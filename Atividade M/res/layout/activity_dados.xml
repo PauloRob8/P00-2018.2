@@ -7,13 +7,15 @@
     tools:context=".DadosActivity">
 
     <EditText
+        android:id="@+id/peso1"
         android:hint="@string/digite_seu_peso_kg"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <EditText
+        android:id="@+id/altura1"
         android:hint="@string/digite_sua_altura_metros"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -24,7 +26,8 @@
         android:layout_marginTop="15dp"
         android:layout_gravity="center"
         android:layout_width="200dp"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:onClick="confirmar"/>
 
 
 </LinearLayout>

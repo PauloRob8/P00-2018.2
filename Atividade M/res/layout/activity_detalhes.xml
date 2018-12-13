@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DetalhesActivity">
+
+    <TextView
+        android:id="@+id/gasto"
+        android:text="@string/gasto_energ_tico_total"
+        android:textStyle="bold"
+        android:layout_marginStart="70dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/getValor"
+        android:textSize="30sp"
+        android:layout_marginStart="100dp"
+        android:layout_below="@id/gasto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/kal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="55dp"
+        android:layout_below="@id/getValor"
+        android:text="@string/kal"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/gramas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="188dp"
+        android:layout_marginLeft="187dp"
+        android:layout_marginTop="59dp"
+        android:layout_marginEnd="20dp"
+        android:layout_toEndOf="@+id/kal"
+        android:text="@string/gramas"
+        android:layout_below="@id/getValor"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/gorduras"
+        android:text="@string/gorduras"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/kal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/proteínas"
+        android:text="@string/prote_nas"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/gorduras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:text="@string/carboidratos"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/proteínas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/gorduraKal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/kal"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="9dp"
+        android:layout_toRightOf="@+id/gorduras" />
+    <TextView
+        android:id="@+id/proteinaKal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gorduras"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="9dp"
+        android:layout_toRightOf="@+id/gorduras" />
+    <TextView
+
+        android:id="@+id/carboidratoKal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/proteinaKal"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="9dp"
+        android:layout_toRightOf="@+id/gorduras" />
+
+    <TextView
+        android:id="@+id/gorduraG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gramas"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="5dp"
+         />
+
+    <TextView
+        android:id="@+id/proteinaG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gorduraG"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="7dp"
+        />
+
+    <TextView
+        android:id="@+id/carboidratoG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/proteinaG"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="7dp"
+        />
+
+    <Button
+        android:layout_below="@id/carboidratoKal"
+        android:background="@color/colorPrimary"
+        android:textColor="#FFFF"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="95dp"
+        android:text="@string/confirmar"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:onClick="confirmar"/>
+
+
+</RelativeLayout>

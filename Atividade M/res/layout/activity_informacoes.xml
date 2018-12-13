@@ -9,7 +9,7 @@
     <TextView
         android:id="@+id/nome2"
         android:layout_marginTop="10dp"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -28,15 +28,16 @@
     <TextView
         android:id="@+id/altura"
         android:text="Altura: 1.60m"
-        android:textSize="18sp"
-        android:layout_marginTop="10dp"
+        android:textSize="15sp"
+        android:visibility="invisible"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <TextView
         android:id="@+id/peso"
         android:text="Peso: 3kg"
-        android:textSize="18sp"
+        android:visibility="invisible"
+        android:textSize="15sp"
         android:layout_marginTop="5dp"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
@@ -44,15 +45,27 @@
 
     <TextView
         android:id="@+id/tbm"
-        android:text="1293.21kal"
+        android:visibility="invisible"
         android:textStyle="bold"
-        android:textSize="40sp"
+        android:textSize="18sp"
         android:layout_marginTop="8dp"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <TextView
+        android:id="@+id/get"
+        android:visibility="invisible"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:visibility="invisible"
+        android:id="@+id/estilo"
         android:layout_marginTop="10dp"
         android:text="@string/informe_seu_estilo_de_vida"
         android:layout_gravity="center"
@@ -60,7 +73,9 @@
         android:layout_height="wrap_content" />
 
     <RadioGroup
-        android:layout_marginTop="10dp"
+        android:id="@+id/radioGroup"
+        android:visibility="invisible"
+        android:layout_marginTop="5dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -92,12 +107,13 @@
     </RadioGroup>
 
     <Button
-        android:text="Detalhes"
+        android:text="@string/detalhes"
         android:textColor="#FFF"
         android:background="@color/colorPrimary"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:onClick="detalhar"/>
 
 </LinearLayout>
